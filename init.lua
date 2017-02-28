@@ -90,3 +90,29 @@ if minetest.get_modpath("farming") then
 	end
 end
 
+-- Bonemeal flowers registration for adding dirt decoration
+if minetest.get_modpath("bonemeal") and bonemeal then
+	local green_grass = {
+		"default:grass_2", "default:grass_3", "default:grass_4",
+		"default:grass_5", "", ""
+	}
+	local dry_grass = {
+		"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
+		"default:dry_grass_5", "", ""
+	}
+	local flowers = {
+		"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium",
+		"flowers:rose", "flowers:tulip", "flowers:viola", "moreflowers:wild_carrot"
+	}
+	
+	local dirt_with_grass_deco = {
+		{"default:dirt_with_grass", green_grass, flowers}
+	}
+
+	local dirt_with_dry_grass_deco = {
+		{"default:dirt_with_dry_grass", dry_grass, flowers}
+	}
+			
+	bonemeal:add_deco(dirt_with_grass_deco)
+	bonemeal:add_deco(dirt_with_dry_grass_deco)
+end
