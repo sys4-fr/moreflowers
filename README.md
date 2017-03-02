@@ -15,7 +15,7 @@ Optional Dependencies:
 
 For now this mod add:
 - Wild carrot: spawn into biomes grassland, deciduous_forest and coniferous_forest.
-- Teosinte: spawn into biome rainforest.
+- Teosinte (corn ancestor): spawn into biome rainforest.
   
 - Bunch of flowers:
   If farming mod is loaded then you can craft a bunch of flowers with any items from the flower group and a string of cotton.
