@@ -30,7 +30,36 @@ local function add_simple_flower(name, desc, box, f_groups)
 																  })
 end
 
-moreflowers.datas = {
+local function add_tall_flower(name, desc, box, f_groups)
+	f_groups.snappy = 3
+	f_groups.flower = 1
+	f_groups.flora = 1
+	f_groups.attached_node = 1
+
+	minetest.register_node("moreflowers:" .. name, {
+									  description = desc,
+									  drawtype = "plantlike",
+									  waving = 1,
+									  tiles = {"moreflowers_"..name..".png"},
+									  inventory_image = "moreflowers_"..name..".png",
+									  wield_image = "moreflowers_"..name..".png",
+									  sunlight_propagates = true,
+									  paramtype = "light",
+									  walkable = false,
+									  buildable_to = true,
+									  stack_max = 99,
+									  visual_scale = 1.3,
+									  wield_scale = {x=1, y=1.5, z=1},
+									  groups = f_groups,
+									  sounds = default.node_sound_leaves_defaults(),
+									  selection_box = {
+										  type = "fixed",
+										  fixed = box
+									  }
+																  })
+end
+
+moreflowers.datas_simple = {
 	{
 		"wild_carrot",
 		"Wild Carrot",
@@ -38,9 +67,21 @@ moreflowers.datas = {
 		{flammable = 1}
 	},
 }
+moreflowers.datas_tall = {
+	{
+		"teosinte",
+		"Teosinte",
+		{-0.5, -0.5, -0.5, 0.5, 1.2, 0.5},
+		{flammable = 1}
+	},
+}
 
-for _,item in pairs(moreflowers.datas) do
+for _,item in pairs(moreflowers.datas_simple) do
 	add_simple_flower(unpack(item))
+end
+
+for _,item in pairs(moreflowers.datas_tall) do
+	add_tall_flower(unpack(item))
 end
 
 -- Plant spread TODO ?
@@ -102,7 +143,8 @@ if minetest.get_modpath("bonemeal") and bonemeal then
 	}
 	local flowers = {
 		"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium",
-		"flowers:rose", "flowers:tulip", "flowers:viola", "moreflowers:wild_carrot"
+		"flowers:rose", "flowers:tulip", "flowers:viola", "moreflowers:wild_carrot",
+		"moreflowers:teosinte",
 	}
 	
 	local dirt_with_grass_deco = {

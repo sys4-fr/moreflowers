@@ -18,7 +18,7 @@ local function register_mgv6_flower(name)
 	})
 end
 
-local function register_flower(seed, name)
+--[[local function register_flower(seed, name, biomes_list)
 	minetest.register_decoration({
 		deco_type = "simple",
 		place_on = {"default:dirt_with_grass"},
@@ -37,13 +37,43 @@ local function register_flower(seed, name)
 		decoration = "moreflowers:" .. name,
 	})
 end
-
+--]]
 function moreflowers.register_mgv6_decorations()
 	register_mgv6_flower("wild_carrot")
 end
 
 function moreflowers.register_decorations()
-	register_flower(368, "wild_carrot")
+--	register_flower(368, "wild_carrot")
+	minetest.register_decoration(
+		{
+			deco_type = "simple",
+			place_on = {"default:dirt_with_grass"},
+			sidelen = 16,
+			noise_params = {
+				offset = -0.015,
+				scale = 0.025,
+				spread = {x = 200, y = 200, z = 200},
+				seed = 368,
+				octaves = 3,
+				persist = 0.6
+			},
+			biomes = {"grassland", "deciduous_forest", "coniferous_forest"},
+			y_min = 1,
+			y_max = 31000,
+			decoration = "moreflowers:wild_carrot",
+		})
+	
+	minetest.register_decoration(
+		{
+			deco_type = "simple",
+			place_on = {"default:dirt_with_grass"},
+			sidelen = 16,
+			fill_ratio = 0.001,
+			biomes = {"rainforest"},
+			decoration = "moreflowers:teosinte",
+			height = 1,
+		})
+											  
 end
 
 -- detect mapgen
