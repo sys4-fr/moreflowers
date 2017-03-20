@@ -66,7 +66,7 @@ function moreflowers.register_decorations()
 	minetest.register_decoration(
 		{
 			deco_type = "simple",
-			place_on = {"default:dirt_with_grass"},
+			place_on = {"default:dirt_with_rainforest_litter", "default:dirt_with_grass"},
 			sidelen = 16,
 			fill_ratio = 0.001,
 			biomes = {"rainforest"},
