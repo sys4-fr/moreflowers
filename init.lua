@@ -146,6 +146,15 @@ if minetest.get_modpath("bonemeal") and bonemeal then
 		"flowers:rose", "flowers:tulip", "flowers:viola", "moreflowers:wild_carrot",
 		"moreflowers:teosinte",
 	}
+
+	if minetest.get_modpath("bakedclay") then
+		flowers[9] = "bakedclay:delphinium"
+		flowers[10] = "bakedclay:thistle"
+		flowers[11] = "bakedclay:lazarus"
+		flowers[12] = "bakedclay:mannagrass"
+		flowers[13] = ""
+	end
+
 	
 	local dirt_with_grass_deco = {
 		{"default:dirt_with_grass", green_grass, flowers}
