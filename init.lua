@@ -64,7 +64,13 @@ moreflowers.datas_simple = {
 		"wild_carrot",
 		"Wild Carrot",
 		{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-		{flammable = 1}
+		{flammable = 1},
+	},
+	{
+		"solanaceae",
+		"Solanaceae",
+		{-0.3, -0.5, -0.3, 0.3, 0.5, 0.3},
+		{flammable = 1},
 	},
 }
 moreflowers.datas_tall = {
@@ -144,15 +150,16 @@ if minetest.get_modpath("bonemeal") and bonemeal then
 	local flowers = {
 		"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium",
 		"flowers:rose", "flowers:tulip", "flowers:viola", "moreflowers:wild_carrot",
-		"moreflowers:teosinte",
+		"moreflowers:teosinte", "moreflowers:solanaceae"
 	}
 
 	if minetest.get_modpath("bakedclay") then
-		flowers[9] = "bakedclay:delphinium"
-		flowers[10] = "bakedclay:thistle"
-		flowers[11] = "bakedclay:lazarus"
-		flowers[12] = "bakedclay:mannagrass"
-		flowers[13] = ""
+		local index = #flowers
+		flowers[index+1] = "bakedclay:delphinium"
+		flowers[index+2] = "bakedclay:thistle"
+		flowers[index+3] = "bakedclay:lazarus"
+		flowers[index+4] = "bakedclay:mannagrass"
+		flowers[index+5] = ""
 	end
 
 	
