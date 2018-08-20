@@ -1,7 +1,7 @@
-# moreflowers
-by sys4
+## moreflowers
+>by sys4
 
-A Minetest mod that add more flowers
+A Minetest mod that add more flowers.
 
 This simple mod extend the flowers mod from MT_Game by adding more flowers.
 
